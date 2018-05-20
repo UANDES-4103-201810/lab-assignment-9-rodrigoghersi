@@ -1,23 +1,27 @@
-<html>
+<!DOCTYPE html>
+
+<body>
 
 <h1>Bienvenido</h1>
 
 <a>Agregue un nuevo director o actor</a>
 
-<form>
-  <% form_tag("/persons/create", method: "post") %>
-    <%= text_field_tag("person", :first_name) %>
-    <%= text_field_tag("person", :last_name) %>
-    <%= text_area_tag("person", :description) %>
-    <%= date_select("person", :birth_date) %>
-    <th>Actor</th><%= radio_button_tag("actor", "yes") %>
-    <th>Director</th><%= radio_button_tag("director", "yes") %>
 
-    <input type="submit" value="Submit">
+  <%= form_tag("/person/create", method: "post") do%>
+    <%= text_field_tag(:first_name) %> First Name
+    <%= text_field_tag(:last_name) %> Last Name
+    <%= text_area_tag(:description) %> Description
+    <%= date_field_tag(:birth_date) %> Birth Date
+    <th>Actor</th><%= radio_button_tag(:role, 'Actor') %>
+    <th>Director</th><%= radio_button_tag(:role, 'Director') %>
+    <%= submit_tag('Submit') %>
+    <% end %>
+
+</body>
+ 
 
 
 
-</form>
 
 </html>
 

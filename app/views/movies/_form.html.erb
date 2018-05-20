@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :director_id %>
-    <%= form.number_field :director_id, id: :movie_director_id %>
+    <%= form.collection_select :director_id, Director.order(:first_name), :id, :first_name, include_blank: true %>
   </div>
 
   <div class="field">
